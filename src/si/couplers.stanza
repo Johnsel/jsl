@@ -27,7 +27,6 @@ Example: Block Capacitors for SI transmitter
 adjacent to one another. The components will still be placed at the same X location,
 but the right component will be slid up (positive Y) by (y-skew/2). The left component
 will be slid down (negative Y) by (y-skew/2).
-<<<<<<< HEAD
 @param pre-pose To support components that are not defined in JSL's standard 2-pin land pattern
 framework, the `pre-pose` argument can be used to modify the component placement
 before constructing the coupler structure. This pose modification is applied to both
@@ -40,10 +39,6 @@ public pcb-module dp-coupler (
   y-skew:Double = 0.0,
   pre-pose:Pose = loc(0.0, 0.0)
   ) :
-=======
-<DOC>
-public pcb-module dp-coupler (comp:Instantiable -- margin:Double = 0.0, y-skew:Double = 0.0) :
->>>>>>> pr4
   port A : diff-pair
   port B : diff-pair
 
@@ -59,16 +54,11 @@ public pcb-module dp-coupler (comp:Instantiable -- margin:Double = 0.0, y-skew:D
 
   ; @NOTE - I should be able to use `A` and `B` here but as of
   ;  2024/03/12 - the module pin forwarding seems to not work.
-<<<<<<< HEAD
   bidir-swappable-dual-pair(A, B)
-=======
-  bidir-swappable-dual-pair(c[0].p[1], c[1].p[1], c[0].p[2], c[1].p[2])
->>>>>>> pr4
 
   ; This places these components such that they are directly adjacent
   ;  to each other. This assumes that the pads for the 2-pin component
   ;  are aligned vertically on the Y axis.
-<<<<<<< HEAD
   val cyard-sh = pre-pose * get-courtyard-shape(comp)
   val cyard = dims(cyard-sh)
 
@@ -78,14 +68,6 @@ public pcb-module dp-coupler (comp:Instantiable -- margin:Double = 0.0, y-skew:D
 
   place(c[0]) at loc(x-off, y2) * pre-pose on Top
   place(c[1]) at loc((- x-off), (- y2)) * pre-pose on Top
-=======
-  val cyard = get-courtyard-dims(comp)
-  val x-off = (x(cyard) + margin) / 2.0
-
-  val y2 = y-skew / 2.0
-  place(c[0]) at loc(x-off, y2) on Top
-  place(c[1]) at loc((- x-off), (- y2)) on Top
->>>>>>> pr4
 
 doc: \<DOC>
 Construct Aligned Symmetric Shunt Components
