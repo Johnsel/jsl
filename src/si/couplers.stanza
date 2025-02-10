@@ -54,7 +54,7 @@ public pcb-module dp-coupler (
 
   ; @NOTE - I should be able to use `A` and `B` here but as of
   ;  2024/03/12 - the module pin forwarding seems to not work.
-  bidir-swappable-dual-pair(c[0].p[1], c[1].p[1], c[0].p[2], c[1].p[2])
+  bidir-swappable-dual-pair(A, B)
 
   ; This places these components such that they are directly adjacent
   ;  to each other. This assumes that the pads for the 2-pin component
