@@ -24,6 +24,7 @@ pcb-module pcie-example :
 
   val b-cap = block-cap(220.0e-9)
 
+<<<<<<< HEAD
   ; Construct a typical passive connector setup
   ;  for a 2 lane configuration. This means a
   ;  straight through `tx => tx` and `rx => rx`
@@ -49,6 +50,8 @@ pcb-module pcie-example :
     ;  we just use a straight net connection.
     net (src.control, dst.control)
 
+=======
+>>>>>>> pr4
   ; Setup an example of an active to active connection between
   ;  two ICs (ie not to a connector). In this case, we need
   ;  a null-modem style connection and blocking caps on both rx and

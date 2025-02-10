@@ -162,6 +162,7 @@ public defn get-courtyard-boundary (
   else:
     bounds $ Union(content)
 
+<<<<<<< HEAD
 doc: \<DOC>
 Extract the courtyard shape for the landpattern of a component.
 
@@ -180,6 +181,8 @@ public defn get-courtyard-shape (comp:Instantiable) -> Shape:
       Courtyard(Top):
         One $ shape(lspec)
       else: None()
+=======
+>>>>>>> pr4
 
 doc: \<DOC>
 Extract the courtyard dimensions for the landpattern of a component.
@@ -192,4 +195,14 @@ courtyard layer.
 @return X and Y dimensions of the courtyard boundary in mm
 <DOC>
 public defn get-courtyard-dims (comp:Instantiable) -> Dims:
+<<<<<<< HEAD
   dims $ get-courtyard-shape(comp)
+=======
+  val lp = landpattern(comp)
+  val topC = Courtyard(Top)
+  dims $ Union $ for lspec in layers(lp) seq?:
+    switch(specifier(lspec)):
+      Courtyard(Top):
+        One $ shape(lspec)
+      else: None()
+>>>>>>> pr4
